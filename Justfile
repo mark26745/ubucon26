@@ -10,7 +10,7 @@ clean:
 build-sitl:
   uv run --directory firmware/px4 make px4_sitl_default
 
-sitl: build-sitl
+px4-sitl: build-sitl
   uv run --directory firmware/px4 ./build/px4_sitl_default/bin/px4
 
 sim: build-sitl
@@ -26,8 +26,10 @@ sitl-dds-agent:
   MicroXRCEAgent udp4 -p 8888
 
 ros2-subscribe-sensors:
-    @echo "Waiting for PX4 SITL to start publishing..."
+    @echo "Waiting for PX4 STILL to start publishing..."
     bash -c 'until ros2 topic list | grep -q "/fmu/out/sensor_combined"; do sleep 1; done'
     @echo "Topic found! Starting subscriber..."
     ros2 topic echo /fmu/out/sensor_combined
 
+mavlink-rest:
+  mavlink2rest -c udpin:0.0.0.0:14552 --mavlink 2
