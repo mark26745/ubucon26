@@ -112,18 +112,19 @@
               WorkingDir = "/app";
               Env = [
                 "PATH=${container-env}/bin:/usr/local/bin:/usr/bin:/bin"
-                "ROS_DISTRO=${rosDistro}"
-                "QT_X11_NO_MITSHM=1"
-                "QT_QPA_PLATFORM=xcb"
-                "AMENT_PREFIX_PATH=${container-env}"
                 "PYTHONPATH=${container-env}/${pkgs.python3.sitePackages}"
                 "LD_LIBRARY_PATH=${container-env}/lib"
+                "AMENT_PREFIX_PATH=${container-env}"
+                "SSL_CERT_FILE=${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt"
+                "GIT_SSL_CAINFO=${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt"
+                "ROS_DISTRO=${rosDistro}"
+                "ROS_LOG_DIR=/app/.ros/log"
+                "QT_X11_NO_MITSHM=1"
+                "QT_QPA_PLATFORM=xcb"
                 "UV_PYTHON=${container-env}/bin/python3.12"
                 "UV_PYTHON_PREFERENCE=only-system"
                 "UV_PROJECT_ENVIRONMENT=.venv_container"
                 "UV_PYTHON_INSTALL_DIR=/app/.uv_python"
-                "SSL_CERT_FILE=${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt"
-                "GIT_SSL_CAINFO=${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt"
               ];
             };
           };
