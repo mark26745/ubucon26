@@ -27,8 +27,6 @@
           distro = rosDistro;
         };
 
-        rosPkgs = pkgs.rosPackages.${rosDistro};
-
         basePackages = with pkgs; [
           gnugrep
           gnused
@@ -54,7 +52,6 @@
           git
           pkg-config
           uv
-          colcon
           hivemind
           just
           nix-ld

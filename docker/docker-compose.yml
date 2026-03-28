@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  aeronix:
+    image: localhost/aeronix-drone-workspace:latest
+    container_name: aeronix-dev
+    stdin_open: true
+    tty: true
+    working_dir: /app
+
+    volumes:
+      - ../:/app
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ${XDG_RUNTIME_DIR}:${XDG_RUNTIME_DIR}
+
+    environment:
+      - DISPLAY=${DISPLAY}
+      - WAYLAND_DISPLAY=${WAYLAND_DISPLAY}
+      - XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR}
+      - QT_QPA_PLATFORM=xcb
+
+    network_mode: host
+
+    command: ["/bin/just", "sim"]
