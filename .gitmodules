@@ -1,0 +1,3 @@
+[submodule "firmware/px4"]
+	path = firmware/px4
+	url = https://github.com/PX4/PX4-Autopilot.git
