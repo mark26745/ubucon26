@@ -1,7 +1,9 @@
 #  AeroNix ROS 2 Drone Workspace
 
 <p align="center">
-  <video src="./attachments/demo.webm" width="900" autoplay loop muted playsinline></video>
+  <a href="./attachments/demo.webm">
+    <img src="./attachments/demo.gif" width="900" alt="AeroNix demo">
+  </a>
 </p>
 
 A reproducible, containerized drone development environment built with **Nix Flakes**, **ROS 2 Humble**, and **PX4 SITL**. This repository provides everything you need to simulate, develop, and interact with a drone stack—from firmware to ROS 2 topics.
